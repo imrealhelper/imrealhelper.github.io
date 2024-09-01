@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JinwooIm Github.io</title>
+    <style>
+        @font-face {
+            font-family: 'Paperlogy-8ExtraBold';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        @font-face {
+             font-family: 'S-CoreDream-3Light';
+             src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+             font-weight: normal;
+             font-style: normal;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'S-CoreDream-3Light', 'Arial', sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+        }
+        .bg {
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            overflow: auto;
+        }
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            z-index: 10;
+        }
+        h1 {
+            font-family: 'Paperlogy-8ExtraBold', 'Arial', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .button {
+            font-family: 'Paperlogy-8ExtraBold', 'Arial', sans-serif;
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: rgba(65, 105, 225, 0.7);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+            border: 2px solid transparent;
+        }
+        .button:hover {
+            background-color: rgba(65, 105, 225, 0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: #ffffff;
+        }
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #simulation {
+            margin-bottom: 20px;
+        }
+        #mach-text {
+            font-family: 'Paperlogy-8ExtraBold', 'Arial', sans-serif;
+            font-size: 2em;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <div id="simulation"></div>
+        <div id="mach-text">Mach 3.0</div>
+    </div>
+    <div class="bg">
+        <div class="content">
+            <h1>JinwooIm Portfolio</h1>
+            <div class="button-container">
+                <a href="https://jinwooimblog.vercel.app/" class="button">스터디 블로그</a>
+                <a href="https://www.linkedin.com/in/jinwoo-im-589a5a287" class="button">LinkedIn</a>
+                <a href="https://github.com/imrealhelper" class="button">GitHub</a>
+                <a href="#" class="button">포트폴리오</a>
+                <a href="#" class="button">덕선배(항공우주웹서비스)</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let v = 3.0;
+        let a = 1;
+        let canvas = document.createElement('canvas');
+        canvas.width = 640;
+        canvas.height = 480;
+        document.getElementById('simulation').appendChild(canvas);
+        let ctx = canvas.getContext('2d');
+        let circles = [];
+        let frameCount = 0;
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            circles.forEach(circle => {
+                ctx.beginPath();
+                ctx.arc(circle.x, canvas.height / 2, circle.radius, 0, 2 * Math.PI);
+                ctx.strokeStyle = circle.color;
+                ctx.stroke();
+            });
+        }
+
+        function update() {
+            frameCount++;
+            circles.forEach(circle => {
+                circle.x += v;
+                circle.radius += a;
+            });
+            if (frameCount % 10 === 0) {
+                circles.push({x: 0, radius: 1, color: getRandomColor()});
+            }
+            circles = circles.filter(circle => circle.x - circle.radius < canvas.width);
+        }
+
+        function loop() {
+            update();
+            draw();
+            requestAnimationFrame(loop);
+        }
+
+        loop();
+
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            loading.style.opacity = '0';
+            loading.style.transition = 'opacity 0.5s ease-out';
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 500);
+        }, 1000);
+    });
+
+    function createMeteor() {
+        const meteor = document.createElement('div');
+        meteor.className = 'meteor';
+        meteor.style.left = `${Math.random() * 100}%`;
+        meteor.style.top = '0';
+        document.body.appendChild(meteor);
+
+        const animation = meteor.animate([
+            { transform: 'translateY(0) translateX(0)', opacity: 1 },
+            { transform: `translateY(${window.innerHeight}px) translateX(${Math.random() * 200 - 100}px)`, opacity: 0 }
+        ], {
+            duration: Math.random() * 1000 + 1000,
+            easing: 'linear'
+        });
+
+        animation.onfinish = () => {
+            meteor.remove();
+        };
+    }
+
+    function meteorShower() {
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createMeteor, Math.random() * 2000);
+        }
+    }
+
+    window.addEventListener('load', () => {
+        meteorShower();
+        setInterval(meteorShower, 5000);
+    });
+    </script>
+</body>
+</html>
