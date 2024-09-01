@@ -34,6 +34,7 @@
             background-size: cover;
             position: relative;
             overflow: auto;
+            transition: background-image 1s ease-in-out;
         }
         .content {
             position: absolute;
@@ -112,7 +113,8 @@
                 <a href="https://www.linkedin.com/in/jinwoo-im-589a5a287" class="button">LinkedIn</a>
                 <a href="https://github.com/imrealhelper" class="button">GitHub</a>
                 <a href="#" class="button">포트폴리오</a>
-                <a href="https://supersonic.streamlit.app/" class="button">덕선배(항공우주웹서비스)</a>
+                <a href="#" class="button">덕선배(항공우주웹서비스)</a>
+                <a href="numerical.html" class="button">수치해석프로젝트 족보</a>
             </div>
         </div>
     </div>
@@ -203,6 +205,24 @@
             setTimeout(createMeteor, Math.random() * 2000);
         }
     }
+
+    // 배경 이미지 URL 배열
+    const backgroundImages = [
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80',
+        'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80',
+        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80',
+        'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80'
+    ];
+
+    let currentImageIndex = 0;
+
+    function changeBackgroundImage() {
+        currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+        document.querySelector('.bg').style.backgroundImage = `url('${backgroundImages[currentImageIndex]}')`;
+    }
+
+    // 30초마다 배경 이미지 변경
+    setInterval(changeBackgroundImage, 30000);
 
     window.addEventListener('load', () => {
         meteorShower();

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerical Methods - JinwooIm Github.io</title>
+    <style>
+        @font-face {
+            font-family: 'Paperlogy-8ExtraBold';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        @font-face {
+             font-family: 'S-CoreDream-3Light';
+             src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+             font-weight: normal;
+             font-style: normal;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'S-CoreDream-3Light', 'Arial', sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+        }
+        .bg {
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            overflow: auto;
+            transition: background-image 1s ease-in-out;
+        }
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            z-index: 10;
+        }
+        h1 {
+            font-family: 'Paperlogy-8ExtraBold', 'Arial', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .button {
+            font-family: 'Paperlogy-8ExtraBold', 'Arial', sans-serif;
+            display: block;
+            width: 200px;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: rgba(65, 105, 225, 0.7);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+            border: 2px solid transparent;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: rgba(65, 105, 225, 0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <div class="content">
+            <h1>수치해석 프로젝트 족보</h1>
+            <div class="button-container">
+                <a href="index.html" class="button">Back to Home</a>
+                <a href="https://github.com/imrealhelper/imrealhelper.github.io/blob/main/Midterm_2019s_sol.ipynb" target="_blank" class="button">2019 1학기 중간(sol)</a>
+                <a href="https://github.com/imrealhelper/imrealhelper.github.io/blob/main/Midterm_2019s_sol.ipynb" target="_blank" class="button">2019 2학기 중간(sol)</a>
+                <a href="https://github.com/imrealhelper/imrealhelper.github.io/blob/main/Midterm_2020a.ipynb" target="_blank" class="button">2020 2학기 중간</a>
+                <a href="https://github.com/imrealhelper/imrealhelper.github.io/blob/main/Final_2019s_sol.ipynb" target="_blank" class="button">2019 1학기 기말(sol)</a>
+                <a href="https://github.com/imrealhelper/imrealhelper.github.io/blob/main/Final_2019a_sol.ipynb" target="_blank" class="button">2019 2학기 기말(sol)</a>
+                <a href="https://github.com/imrealhelper/imrealhelper.github.io/blob/main/Final_2020a_rev2.ipynb" target="_blank" class="button">2020 2학기 기말</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // 배경 이미지 URL 배열
+    const backgroundImages = [
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80',
+        'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80',
+        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80',
+        'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80'
+    ];
+
+    let currentImageIndex = 0;
+
+    function changeBackgroundImage() {
+        currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+        document.querySelector('.bg').style.backgroundImage = `url('${backgroundImages[currentImageIndex]}')`;
+    }
+
+    // 30초마다 배경 이미지 변경
+    setInterval(changeBackgroundImage, 30000);
+
+    function createMeteor() {
+        const meteor = document.createElement('div');
+        meteor.className = 'meteor';
+        meteor.style.left = `${Math.random() * 100}%`;
+        meteor.style.top = '0';
+        document.body.appendChild(meteor);
+
+        const animation = meteor.animate([
+            { transform: 'translateY(0) translateX(0)', opacity: 1 },
+            { transform: `translateY(${window.innerHeight}px) translateX(${Math.random() * 200 - 100}px)`, opacity: 0 }
+        ], {
+            duration: Math.random() * 1000 + 1000,
+            easing: 'linear'
+        });
+
+        animation.onfinish = () => {
+            meteor.remove();
+        };
+    }
+
+    function meteorShower() {
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createMeteor, Math.random() * 2000);
+        }
+    }
+
+    window.addEventListener('load', () => {
+        meteorShower();
+        setInterval(meteorShower, 5000);
+    });
+    </script>
+</body>
+</html>
