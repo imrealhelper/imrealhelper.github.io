@@ -47,7 +47,7 @@ const StudyRecordList: React.FC = () => {
   }
 
   return (
-    <div className="prose prose-lg max-w-none">
+    <div className="prose max-w-none">
       <h1>Study Record</h1>
       <p>개인적으로 공부하고 정리한 내용들을 기록하는 공간입니다.</p>
       <div className="mt-8 not-prose">

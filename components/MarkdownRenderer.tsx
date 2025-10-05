@@ -1,10 +1,7 @@
-
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import remarkBreaks from 'remark-breaks';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import rehypeRaw from 'rehype-raw';
 
 interface MarkdownRendererProps {
   content: string;
@@ -12,10 +9,10 @@ interface MarkdownRendererProps {
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
   return (
-    <article className="prose prose-lg max-w-none">
+    <article className="prose max-w-none">
       <ReactMarkdown
-        remarkPlugins={[remarkBreaks, remarkMath]}
-        rehypePlugins={[rehypeRaw, rehypeKatex]}
+        remarkPlugins={[remarkMath]}
+        rehypePlugins={[rehypeKatex]}
       >
         {content}
       </ReactMarkdown>

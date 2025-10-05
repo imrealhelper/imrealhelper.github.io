@@ -1,4 +1,3 @@
-
 # Publications
 
 *아직 출판된 논문이 없습니다. 현재 연구를 진행하며 첫 논문을 준비하고 있습니다.*
@@ -19,7 +18,10 @@
 수식과 코드 블럭은 다른 폰트로 렌더링됩니다.
 
 **수식 (Equation):**
-$$ J(\theta) = E_{\tau \sim p_\theta(\tau)}[R(\tau)] $$
+
+$$
+J(\theta) = E_{\tau \sim p_\theta(\tau)}[R(\tau)]
+$$
 
 **코드 블럭 (Code Block):**
 ```python

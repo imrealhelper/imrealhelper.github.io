@@ -17,7 +17,7 @@ const Home: React.FC = () => {
           />
         </div>
 
-        <div className="w-full md:w-2/3 prose prose-lg max-w-none">
+        <div className="w-full md:w-2/3 prose max-w-none">
           <p className="text-xl leading-relaxed !mt-0">
             인하대학교 항공우주공학과 4학년에 재학중인 임진우입니다.
             <br />

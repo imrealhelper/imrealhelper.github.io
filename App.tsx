@@ -21,7 +21,7 @@ const App: React.FC = () => {
             </Routes>
           </div>
         </main>
-        <footer className="text-center py-4 text-xs text-neutral-500 border-t border-neutral-200">
+        <footer className="font-sans text-center py-4 text-xs text-neutral-500 border-t border-neutral-200">
           <p>&copy; {new Date().getFullYear()} Jinwoo Im. All rights reserved.</p>
         </footer>
       </div>

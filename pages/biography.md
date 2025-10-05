@@ -18,3 +18,7 @@
 - **Languages:** Python, C++, MATLAB
 - **Frameworks:** PyTorch, TensorFlow
 - **Tools:** Git, Docker, LaTeX
+
+$$
+\frac{3}{2}
+$$
