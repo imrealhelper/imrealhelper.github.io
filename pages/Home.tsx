@@ -11,7 +11,7 @@ const Home: React.FC = () => {
       <div className="flex flex-col md:flex-row items-start md:gap-8">
         <div className="w-full md:w-1/3 flex-shrink-0 mb-6 md:mb-0">
           <img 
-            src="https://jonghank.github.io/people/jhk-2024.jpg" 
+            src="https://avatars.githubusercontent.com/u/134275738?v=4" 
             alt="A photograph for the blog" 
             className="w-full h-auto object-cover rounded-lg"
           />
