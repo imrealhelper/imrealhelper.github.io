@@ -7,3 +7,5 @@
 $$
 J(\theta) = E_{\tau \sim p_\theta(\tau)}[R(\tau)]
 $$
+
+필자는 아래와 같이 생각하
