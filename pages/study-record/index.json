@@ -1,0 +1,18 @@
+
+[
+  {
+    "slug": "optimization-theory",
+    "title": "최적화 이론 (Optimization Theory)",
+    "summary": "Convex Optimization (Stephen Boyd) 교재를 기반으로 학습한 내용 정리. 위성 궤도 결정 문제에 최적화 기법을 적용하는 프로젝트를 진행했습니다."
+  },
+  {
+    "slug": "reinforcement-learning",
+    "title": "강화학습 심화 (Advanced Reinforcement Learning)",
+    "summary": "UC Berkeley의 CS285 Deep Reinforcement Learning 강의를 기반으로 Model-Free 및 Model-Based 알고리즘을 학습하고 PyTorch로 구현했습니다."
+  },
+  {
+    "slug": "aerospace-software",
+    "title": "항공우주 소프트웨어 실습",
+    "summary": "C++를 이용한 시뮬레이터 개발 및 MATLAB/Simulink를 활용한 제어 시스템 모델링을 실습하고 6-DOF 시뮬레이터를 구현했습니다."
+  }
+]

@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jinwoo Im's Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558fYv3eXM7eUcykrg/+DDDBoCoJwnlrsqAXMDIcHDIZsVLlD4JBdG/gf" crossorigin="anonymous">
+    <style>
+      @font-face {
+        font-family: 'JoseonShinmyeongjo';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.1/ChosunSm.woff') format('woff');
+        font-weight: normal;
+        font-display: swap;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'serif': ['JoseonShinmyeongjo', 'Georgia', 'serif'],
+              'sans': ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+              'mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+            },
+            typography: ({ theme }) => ({
+              DEFAULT: {
+                css: {
+                  '--tw-prose-body': theme('colors.black'),
+                  '--tw-prose-headings': theme('colors.black'),
+                  '--tw-prose-lead': theme('colors.black'),
+                  '--tw-prose-links': theme('colors.black'),
+                  '--tw-prose-bold': theme('colors.black'),
+                  '--tw-prose-counters': theme('colors.black'),
+                  '--tw-prose-bullets': theme('colors.black'),
+                  '--tw-prose-hr': theme('colors.neutral.300'),
+                  '--tw-prose-quotes': theme('colors.black'),
+                  '--tw-prose-quote-borders': theme('colors.neutral.300'),
+                  '--tw-prose-captions': theme('colors.neutral.700'),
+                  '--tw-prose-code': theme('colors.black'),
+                  '--tw-prose-pre-code': theme('colors.white'),
+                  '--tw-prose-pre-bg': theme('colors.black'),
+                  '--tw-prose-th-borders': theme('colors.neutral.400'),
+                  '--tw-prose-td-borders': theme('colors.neutral.300'),
+                  '*': {
+                    fontFamily: theme('fontFamily.serif').join(', '),
+                  },
+                  'code, pre, kbd, samp': {
+                    fontFamily: theme('fontFamily.mono').join(', '),
+                  },
+                   'code::before': {
+                    content: '""',
+                  },
+                  'code::after': {
+                    content: '""',
+                  },
+                  'p': {
+                    marginTop: '0.5em',
+                    marginBottom: '1.25em',
+                    lineHeight: '1.9',
+                  },
+                  'h2': {
+                      marginTop: '2em',
+                      marginBottom: '1em',
+                  },
+                  'h3': {
+                      marginTop: '1.6em',
+                      marginBottom: '0.6em',
+                  },
+                  'hr': {
+                      marginTop: '3em',
+                      marginBottom: '3em',
+                  },
+                  '.katex-display': {
+                     overflowX: 'auto',
+                     overflowY: 'hidden',
+                  }
+                },
+              },
+            }),
+          },
+        },
+        plugins: [
+            // The typography plugin is included in the Tailwind CSS v3 CDN
+        ],
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.3",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "remark-breaks": "https://aistudiocdn.com/remark-breaks@^4.0.0",
+    "remark-math": "https://aistudiocdn.com/remark-math@^6.0.0",
+    "rehype-katex": "https://aistudiocdn.com/rehype-katex@^7.0.0",
+    "rehype-raw": "https://aistudiocdn.com/rehype-raw@^7.0.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-white font-serif">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
