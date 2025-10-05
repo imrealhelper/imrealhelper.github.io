@@ -14,28 +14,36 @@ const StudyRecordList: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchRecords = async () => {
+    let isMounted = true;
+
+    const loadRecords = async () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch('./pages/study-record/index.json');
-        if (!response.ok) {
-          throw new Error('학습 기록 목록을 불러올 수 없습니다.');
+        const { default: data } = (await import('./study-record/index.json')) as {
+          default: StudyRecordItem[];
+        };
+        if (isMounted) {
+          setRecords(data);
         }
-        const data: StudyRecordItem[] = await response.json();
-        setRecords(data);
       } catch (err) {
-        if (err instanceof Error) {
-            setError(err.message);
-        } else {
-            setError('목록을 불러오는 중 알 수 없는 오류가 발생했습니다.');
+        if (!isMounted) {
+          return;
         }
+        console.error('학습 기록 로딩 실패:', err);
+        setError('학습 기록 목록을 불러올 수 없습니다.');
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     };
 
-    fetchRecords();
+    loadRecords();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   if (loading) {
