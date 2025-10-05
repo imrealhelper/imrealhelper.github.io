@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import MarkdownPage from './pages/MarkdownPage';
@@ -8,7 +8,7 @@ import StudyRecordList from './pages/StudyRecordList';
 
 const App: React.FC = () => {
   return (
-    <HashRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen bg-white text-black flex flex-col">
         <Header />
         <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
@@ -25,7 +25,7 @@ const App: React.FC = () => {
           <p>&copy; {new Date().getFullYear()} Jinwoo Im. All rights reserved.</p>
         </footer>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 

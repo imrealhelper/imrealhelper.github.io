@@ -137,6 +137,17 @@
 </script>
 </head>
   <body class="bg-white font-serif">
+    <script>
+      (function restoreRedirect() {
+        const redirectPath = sessionStorage.getItem('redirectPath');
+        if (!redirectPath) {
+          return;
+        }
+        sessionStorage.removeItem('redirectPath');
+        const normalizedPath = redirectPath.startsWith('/') ? redirectPath : '/' + redirectPath;
+        window.history.replaceState(null, '', normalizedPath);
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
