@@ -3,6 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 
+const generalMarkdowns = import.meta.glob('./*.md', {
+  as: 'raw',
+  eager: true,
+}) as Record<string, string>;
+
+const studyRecordMarkdowns = import.meta.glob('./study-record/*.md', {
+  as: 'raw',
+  eager: true,
+}) as Record<string, string>;
+
 const MarkdownPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const location = useLocation();
@@ -11,36 +21,31 @@ const MarkdownPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!slug) return;
+    if (!slug) {
+      return;
+    }
 
-    const fetchMarkdown = async () => {
-      setLoading(true);
-      setError(null);
-      
-      const isStudyRecord = location.pathname.startsWith('/study-record/');
-      const filePath = isStudyRecord
-        ? `./pages/study-record/${slug}.md`
-        : `./pages/${slug}.md`;
+    setLoading(true);
+    setError(null);
 
-      try {
-        const response = await fetch(filePath);
-        if (!response.ok) {
-          throw new Error(`'${slug}' 페이지를 찾을 수 없습니다.`);
-        }
-        const text = await response.text();
-        setContent(text);
-      } catch (err) {
-        if (err instanceof Error) {
-            setError(err.message);
-        } else {
-            setError('페이지를 불러오는 중 알 수 없는 오류가 발생했습니다.');
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
+    const decodedSlug = decodeURIComponent(slug);
+    const isStudyRecord = location.pathname.startsWith('/study-record/');
+    const markdownMap = isStudyRecord ? studyRecordMarkdowns : generalMarkdowns;
+    const filePath = isStudyRecord
+      ? `./study-record/${decodedSlug}.md`
+      : `./${decodedSlug}.md`;
 
-    fetchMarkdown();
+    const markdownContent = markdownMap[filePath];
+
+    if (!markdownContent) {
+      setError(`'${decodedSlug}' 페이지를 찾을 수 없습니다.`);
+      setContent('');
+      setLoading(false);
+      return;
+    }
+
+    setContent(markdownContent);
+    setLoading(false);
   }, [slug, location.pathname]);
 
   if (loading) {
