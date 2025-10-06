@@ -1,5 +1,6 @@
 # ASE2010 Applied linear algebra: Homework #1
 
+slug: ase2010_hw1
 updatedAt: 2024년 8월 7일 오후 8:58
 
 ## 1) Linear functions
