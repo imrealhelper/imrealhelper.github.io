@@ -55,12 +55,12 @@
     "summary": "극초음속 영역의 특성, 경계층/충격파 상호작용 개요."
   },
   {
-    "slug": "sr-AC001",
+    "slug": "자동제어 1 동역학 복습 78a91c0f667b4bc782f6cc5baef2159f",
     "title": "자동제어 1. 동역학 복습",
     "summary": "인하대학교 자동제어 강의에서 다룬 질량-스프링-댐퍼 동역학을 복습하고 핵심 개념을 정리했습니다."
   },
   {
-    "slug": "sr-AC002",
+    "slug": "자동제어 2 라플라스 변환 7367e3f291b448aea9365a3f5ae37dd1",
     "title": "자동제어 2. 라플라스 변환",
     "summary": "용수철-댐퍼 시스템을 라플라스 변환으로 해석하며 전달함수 도출 과정을 단계별로 정리했습니다."
   },
@@ -85,37 +85,37 @@
     "summary": "2D 소프트 랜딩 가이던스 문제 풀이 초안으로 향후 세부 내용을 정리할 예정입니다."
   },
   {
-    "slug": "ase2010_hw7",
+    "slug": "Flight data reconstruction 04fa59a7f6c84a6a8d79ad8c194430f4",
     "title": "Flight data reconstruction",
     "summary": "노이즈가 포함된 항공기 데이터를 활용해 추세 성분을 복원하는 최적화 기법을 실습했습니다."
   },
   {
-    "slug": "Formation_flight",
+    "slug": "Formation Flight Own Solution 8cd7d6fab349449d9a988be9733f3c0d",
     "title": "Formation Flight Own Solution",
     "summary": "ASE6029 Formation Flight 과제를 자율적으로 풀이하고 ASE7030 응용 아이디어를 정리했습니다."
   },
   {
-    "slug": "ae-negative_K_gain",
+    "slug": "Negative K gain 에서의 시스템 응답과 보드 선도 cc28ddeb537347ca9d6fd9995696db44",
     "title": "Negative K gain 에서의 시스템 응답과 보드 선도",
     "summary": "음의 게인에서의 제어 시스템 응답과 나이퀴스트/보드 선도 분석으로 안정 조건을 살폈습니다."
   },
   {
-    "slug": "ase2010_hw1",
+    "slug": "ASE2010 Applied linear algebra Homework 1 b697e2c3190b4883b44ae37828e4241d",
     "title": "ASE2010 Applied linear algebra: Homework #1",
     "summary": "내적, 선형 변환, 최소 노름 해법을 포함한 선형대수 숙제 1 풀이를 정리했습니다."
   },
   {
-    "slug": "ase2010_final_exam_1",
+    "slug": "인하대학교 항공우주공학과 선형대수학 2023 기말고사 1번 문제 풀이 4e89e48755654d7abd123962c16642fd",
     "title": "인하대학교 항공우주공학과 선형대수학 2023 기말고사 1번 문제 풀이",
     "summary": "인하대학교 선형대수 기말 1번 지하철 지연 문제를 행렬 모델링으로 풀이했습니다."
   },
   {
-    "slug": "ase2010_final_exam_2",
+    "slug": "인하대학교 항공우주공학과 선형대수학 2023 기말고사 2번 문제 풀이 7f462aa32d6d46e8b7038babd1d96726",
     "title": "인하대학교 항공우주공학과 선형대수학 2023 기말고사 2번 문제 풀이",
     "summary": "재사용 발사체의 소프트 랜딩을 최소 에너지 최적화 문제로 해결했습니다."
   },
   {
-    "slug": "cv-3",
+    "slug": "Convex Optimization 3 Soft Landing guidance via Le 1c944cd8bc5380b783a1f1d4f3fa7390",
     "title": "Convex Optimization 3. Soft Landing guidance via Least squares",
     "summary": "감쇠와 중력을 고려한 로켓 소프트 랜딩을 최소제곱 최적화로 모델링했습니다."
   },
