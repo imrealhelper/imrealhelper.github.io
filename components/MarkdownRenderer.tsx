@@ -85,6 +85,11 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
             const resolvedSrc = resolveImageSource(src);
             return <img {...props} src={resolvedSrc} loading="lazy" />;
           },
+          blockquote: ({ children }) => (
+            <blockquote className="my-6 overflow-hidden rounded-lg border border-sky-200 bg-sky-50/80 px-5 py-4 text-slate-800 shadow-sm dark:border-sky-900/60 dark:bg-sky-900/30 dark:text-slate-100">
+              <div className="space-y-2 [&>p]:m-0 [&>ul]:m-0 [&>:first-child]:mt-0">{children}</div>
+            </blockquote>
+          ),
         }}
       >
         {content}
